@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './App.css';
 import { getPopularMovies } from '../../utilities/apiCalls/apiCalls'
 import { populateMovies } from '../../actions'
+import MovieList from '../../../components/movieList'
 
 class App extends Component {
   constructor() {
@@ -25,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       
+        <MovieList></MovieList>
       </div>
     );
   }
