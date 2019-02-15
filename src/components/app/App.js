@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 import { getPopularMovies } from '../../utilities/apiCalls/apiCalls'
+import { populateMovies } from '../../actions'
 
 class App extends Component {
   constructor() {
@@ -15,7 +17,8 @@ class App extends Component {
   }
 
   getMovies = async () => {
-    await getPopularMovies()
+    const movies = await getPopularMovies()
+    this.props.populateMovies(movies)
   }
 
   
@@ -28,4 +31,12 @@ class App extends Component {
   }
 }
 
-export default App;
+export const mapDispatchToProps = (dispatch) => ({
+  populateMovies: (movies) => dispatch(populateMovies(movies))
+})
+
+export const mapStateToProps = () => ({
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
