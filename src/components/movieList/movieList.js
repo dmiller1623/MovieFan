@@ -1,14 +1,19 @@
 import React from 'react'
-mport MovieCard from '../movieCard'
+import MovieCard from '../movieCard/movieCard'
 
-const MovieList = (movies) => {
+const MovieList = ({ movies }) => {
+  console.log(movies)
   const displayMovies = movies.map((movie, index) => {
-
+    return <MovieCard
+            {...movie}
+            index={index}
+           />
   })
 
   return (
     <div>
-
+      <h1>Movie List</h1>
+      {displayMovies}
     </div>
   )
 }

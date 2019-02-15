@@ -8,9 +8,10 @@ class MovieCard extends Component {
     }
   }
   render() {
+    console.log(this.props)
     return (
       <div>
-
+        <h1>MovieCard</h1>
       </div>
     )
   }
